@@ -30,25 +30,27 @@ public class Plane implements Movable, Comparable{
     @Override
     public Location getSource() {
         return source;
-    }
+    }// המקור
 
     @Override
     public Location getDestination() {
         return destination;
-    }
+    }//יעד
 
     @Override
     public String getCurrentLocation() {
-        return String.format();
+        return getSource().toString();
     }
 
     @Override
     public void move() {
-        // TODO: implement;
+        Location swap=this.destination;
+        this.destination=this.source;
+        this.source=swap;
     }
 
     @Override
     public int compareTo(Object o) {
-        // TODO: implement;
-        return 0;
-    }
+        Plane newP=(Plane)o;
+        return (this.maximalHeight==newP.maximalHeight);
+    }}
