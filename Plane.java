@@ -52,5 +52,5 @@ public class Plane implements Movable, Comparable{
     @Override
     public int compareTo(Object o) {
         Plane newP=(Plane)o;
-        return (this.maximalHeight==newP.maximalHeight);
+        return  Integer.compare(this.maximalHeight,newP.maximalHeight);
     }}

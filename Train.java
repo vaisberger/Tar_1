@@ -23,8 +23,7 @@ public class Train implements Comparable, Movable{
 
     @Override
     public String getType() {
-        // TODO: Implement.
-        return null;
+        return "Train";
     }
 
     @Override
@@ -44,18 +43,28 @@ public class Train implements Comparable, Movable{
 
     @Override
     public String getCurrentLocation() {
-        // TODO: Implement.
-        return null;
+        if(this.currentStation==0){
+            return getSource().toString();
+        }
+        return String.format("station %d between %s and %s.",currentStation,source,destination);
     }
 
     @Override
     public void move() {
-        // TODO: implement;
+        currentStation+=1;
+        if(currentStation==numberOfStations){
+            Location swap=this.destination;
+            this.destination=this.source;
+            this.source=swap;
+            currentStation=0;
+            return;
+        }
+        return;
     }
 
     @Override
     public int compareTo(Object o) {
-        // TODO: implement;
-        return 0;
+        Train newT=(Train) o;
+        return Integer.compare(this.maximalPassenger,newT.maximalPassenger);
     }
 }
